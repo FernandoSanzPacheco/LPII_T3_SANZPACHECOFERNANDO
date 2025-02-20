@@ -1,0 +1,37 @@
+package com.bd.medico2025.servicio;
+
+import java.util.List;
+
+import com.bd.medico2025.modelo.TblMedico;
+
+public class ProductoServicioImp implements IProductoServicio {
+
+	//	se aplica la inyeccion de dependencia
+	@Autowired
+	private IProductoRepositorio iproductorepositorio;
+	
+	@Override
+	public void RegistrarMedico(TblMedico tblmedico) {
+		// TODO Auto-generated method stub
+		
+	}	//	fin del metodo registrar
+
+	@Override
+	public void EliminarMedico(TblMedico tblmedico) {
+		// TODO Auto-generated method stub
+		
+	}	//	fin del metodo eliminar
+
+	@Override
+	public List<TblMedico> ListadoMedicos() {
+		// TODO Auto-generated method stub
+		return null;
+	}	//	fin del metodo listar
+
+	@Override
+	public TblMedico buscarporId(Integer id) {
+		// TODO Auto-generated method stub
+		return null;
+	}	// 	fin del metodo buscar
+
+}	//	fin del metodo principal

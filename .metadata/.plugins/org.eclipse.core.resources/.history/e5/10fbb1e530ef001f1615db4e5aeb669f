@@ -1,0 +1,7 @@
+package com.bd.medico2025.controlador;
+
+@Controller
+
+public class ProductoController {
+
+}
