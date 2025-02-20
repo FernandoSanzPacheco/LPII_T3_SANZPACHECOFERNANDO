@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Médico</title>
+
+    <!-- Bootstrap 5.3.3 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+
+    <style>
+        body {
+            background-color: #c5dec9;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container mt-5">
+        <h2 class="text-center">Registrar Médico</h2>
+
+        <form th:action="@{/Vistas/GuardarMedico}" method="post" th:object="${regmedico}" class="mt-4">
+            <input type="hidden" th:field="*{idproducto}">
+            <input type="hidden" th:field="*{total}" id="total"> <!-- Campo oculto para enviar el total -->
+
+            <div class="row">
+				<div class="col-md-6 mb-3">
+	                <label for="nombret3" class="form-label">Nombres:</label>
+	                <input type="text" class="form-control" id="nombret3" th:field="*{nombret3}" required>
+	            </div>
+				<div class="col-md-6 mb-3">
+					<label for="apellidot3" class="form-label">Apellidos:</label>
+					<input type="text" class="form-control" id="apellidot3" th:field="*{apellidot3}" required>
+				</div>
+			</div>
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="emailt3" class="form-label">Email:</label>
+                    <input type="text" class="form-control" id="emailt3" th:field="*{emailt3}" required>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label for="dnit3" class="form-label">Dni:</label>
+                    <input type="text" class="form-control" id="dnit3" th:field="*{dnit3}" required>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="codbarras" class="form-label">Estado Civil:</label>
+                    <input type="text" class="form-control" id="codbarras" th:field="*{codbarras}" required>
+                </div>
+
+                <div class="col-md-6 mb-3">
+					<label for="fechaven" class="form-label">Fecha de Vencimiento:</label>
+					<input type="date" class="form-control" id="fechaven" th:field="*{fechaven}" required>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Registrar Producto</button>
+                <a href="/Vistas/ListadoProductos" class="btn btn-secondary">Cancelar</a>
+            </div>
+        </form>
+    </div>
+
+    <!-- Bootstrap 5.3.3 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Script para calcular el total automáticamente 
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const precioInput = document.getElementById("precio");
+            const cantidadInput = document.getElementById("cantidad");
+            const totalInput = document.getElementById("total");
+
+            function calcularTotal() {
+                let precio = parseFloat(precioInput.value) || 0;
+                let cantidad = parseInt(cantidadInput.value) || 0;
+                let total = precio * cantidad;
+                totalInput.value = total.toFixed(2);
+            }
+
+            precioInput.addEventListener("input", calcularTotal);
+            cantidadInput.addEventListener("input", calcularTotal);
+        });
+    </script>
+	-->
+</body>
+</html>

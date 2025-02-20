@@ -3,10 +3,12 @@ package com.bd.medico2025.servicio;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.bd.medico2025.modelo.TblMedico;
 import com.bd.medico2025.repositorio.IMedicoRepositorio;
 
+@Service
 public class MedicoServicioImp implements IMedicoServicio {
 
 	//	se aplica la inyeccion de dependencia

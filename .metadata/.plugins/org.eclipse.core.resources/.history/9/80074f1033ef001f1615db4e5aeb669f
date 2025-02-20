@@ -1,0 +1,41 @@
+package com.bd.medico2025.controlador;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.bd.medico2025.modelo.TblMedico;
+import com.bd.medico2025.servicio.IMedicoServicio;
+
+@Controller
+@RequestMapping("/Vistas")
+public class MedicoController {
+	
+	@Autowired
+	private IMedicoServicio imedicoservicio;
+
+	@GetMapping("ListadoMedicos")
+	public String listarMedicos(Model modelo) {
+		
+		// Recuperar lista
+		List<TblMedico> listado = imedicoservicio.ListadoMedicos();
+		// Enviar a vista
+		modelo.addAttribute("listado", listado);
+		return "/Vistas/ListadoMedicos";
+
+	}
+	
+	@GetMapping("/RegistrarMedicos")
+	public String RegistrarMedico(Model modelo) {
+		
+		//Instanciar clase medico
+		TblMedico tblmed = new TblMedico();
+		modelo.addAttribute("regmedico", tblmed);
+		return "/Vistas/FrmRegMedico";
+	}
+
+}
