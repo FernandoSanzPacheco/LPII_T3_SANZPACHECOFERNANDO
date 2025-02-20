@@ -72,6 +72,32 @@
 
     <!-- Bootstrap 5.3.3 JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+	<script>
+		document.getElementById("medicoForm").addEventListener("submit", function(event) {
+		    event.preventDefault(); // Evita el envío inmediato del formulario
+
+		    // Obtener la fecha del campo de entrada
+		    const fechaInput = document.getElementById("fechanacimt3").value;
+		    const fechaLocal = new Date(fechaInput);
+
+		    // Crear una nueva fecha con dos días sumados
+		    const fechaLocalConDiasSumados = new Date(fechaLocal);
+		    fechaLocalConDiasSumados.setDate(fechaLocal.getDate() + 2);
+
+		    // Formatear la fecha como ISO 8601 (yyyy-MM-dd)
+		    const year = fechaLocalConDiasSumados.getFullYear();
+		    const month = String(fechaLocalConDiasSumados.getMonth() + 1).padStart(2, '0');
+		    const day = String(fechaLocalConDiasSumados.getDate()).padStart(2, '0');
+		    const fechaISO = `${year}-${month}-${day}`;
+
+		    // Asignar la fecha formateada al campo del formulario
+		    document.getElementById("fechanacimt3").value = fechaISO;
+
+		    // Enviar el formulario
+		    this.submit();
+		});
+	 </script>
 	
 </body>
 </html>
